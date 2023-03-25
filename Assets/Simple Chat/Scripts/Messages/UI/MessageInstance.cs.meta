@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f9ec712e45fd72f45ae372c70a32bea4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _settingsAsset: {fileID: 11400000, guid: 5312491659be9724cabf877faa0c96d9, type: 2}
+  - _timeText: {instanceID: 0}
+  - _nameInstance: {instanceID: 0}
+  - _messageText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
