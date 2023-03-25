@@ -1,25 +1,27 @@
 using System;
+using FishNet.Broadcast;
+using UnityEngine;
 
 namespace ChatLogic.Messages
 {
     [System.Serializable]
-    public class Message
+    public struct Message : IBroadcast
     {
         private const int TIME_STRING_LENGTH = 5;
         private const int USERNAME_START_INDEX = 8;
 
         public string UserName;
         public string MessageText;
-        public TimeSpan Time;
+        public string Time;
 
         public Message(string username, string text)
         {
             UserName = username;
             MessageText = text;
-            Time = DateTime.Now.TimeOfDay;
+            Time = DateTime.Now.TimeOfDay.ToHHmmString();
         }
 
-        public Message(string username, string text, TimeSpan time)
+        public Message(string username, string text, string time)
         {
             UserName = username;
             MessageText = text;
@@ -42,15 +44,13 @@ namespace ChatLogic.Messages
 
                 return new(name, msgText, time);
             }
-            else
-            {
-                return null;
-            }
+
+            return new();
         }
 
-        private static TimeSpan GetTimeFromString(string str)
+        private static string GetTimeFromString(string str)
         {
-            return TimeSpan.Parse(str.Substring(1, TIME_STRING_LENGTH - 1));
+            return str.Substring(1, TIME_STRING_LENGTH - 1);
         }
 
         private static string GetUserNameFromString(string str)
@@ -81,9 +81,7 @@ namespace ChatLogic.Messages
     {
         public static string ToString(this Message msg)
         {
-            if (msg == null) return string.Empty;
-
-            return $"[{msg.Time.ToHHmmString()}] {msg.UserName}:{msg.MessageText}";
+            return $"[{msg.Time}] {msg.UserName}:{msg.MessageText}";
         }
 
         public static string ToHHmmString(this TimeSpan time)

@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06666667, g: 0.06666667, b: 0.06666667, a: 0.50980395}
+  m_Color: {r: 0.06666667, g: 0.06666667, b: 0.06666667, a: 0.8}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -272,7 +272,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0.000030517578}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &8066843937543740639
@@ -443,11 +443,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf445f60da0c0446b1c9cfee2256de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UserName: UserName
   <Pool>k__BackingField: {fileID: 91300902586460577}
   <MessagesHandler>k__BackingField: {fileID: 3392903997575703556}
   <Input>k__BackingField: {fileID: 8680314580952243653}
   <ScrollView>k__BackingField: {fileID: 7068471780255040261}
-  UserName: UserName
 --- !u!114 &2250932740036780413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,7 +620,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8550264214757099377}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.99999994
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -837,7 +837,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6102670909732682258}
   m_HandleRect: {fileID: 6008835316344365844}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -880,7 +880,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.9999695, y: 0}
+  m_AnchoredPosition: {x: 1, y: 0}
   m_SizeDelta: {x: -7.9999, y: -6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8650241555628724819

@@ -1,4 +1,5 @@
 using ChatLogic.Messages.Misc;
+using FishNet;
 using UnityEngine;
 using UnityEngine.UI;
 
