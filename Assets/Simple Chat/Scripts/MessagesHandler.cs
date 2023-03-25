@@ -1,6 +1,8 @@
 using System;
 using ChatLogic.Messages;
 using ChatLogic.Messages.Misc;
+using FishNet;
+using FishNet.Connection;
 using UnityEngine;
 
 namespace ChatLogic
@@ -13,11 +15,25 @@ namespace ChatLogic
 
         public event Action<MessageInstance> OnMessageReceived;
 
+        private void OnEnable()
+        {
+            InstanceFinder.ClientManager.RegisterBroadcast<Message>(Receive);
+            InstanceFinder.ServerManager.RegisterBroadcast<Message>(OnMessageReceivedFromClient);
+        }
+
+        private void OnDisable()
+        {
+            if(InstanceFinder.ClientManager)
+                InstanceFinder.ClientManager.UnregisterBroadcast<Message>(Receive);
+
+            if(InstanceFinder.ServerManager)
+                InstanceFinder.ServerManager.UnregisterBroadcast<Message>(OnMessageReceivedFromClient);
+        }
+
         public void Send(Message msg)
         {
-            Receive(msg);
-
-            //TODO: send message logic
+            if (InstanceFinder.IsClient)
+                InstanceFinder.ClientManager.Broadcast(msg);
         }
 
         public void Receive(string msg)
@@ -29,6 +45,11 @@ namespace ChatLogic
         {
             var message = _pool.CreateMessage(msg);
             OnMessageReceived?.Invoke(message);
+        }
+
+        private void OnMessageReceivedFromClient(NetworkConnection connection, Message msg)
+        {
+            InstanceFinder.ServerManager.Broadcast(msg);
         }
     }
 }

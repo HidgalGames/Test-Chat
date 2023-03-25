@@ -67,8 +67,6 @@ namespace ChatLogic
 
         private void AddNameToInput(MessageInstance msg)
         {
-            if (msg.Message == null) return;
-
             if (_input)
             {
                 _input.SetSelectedState(true);

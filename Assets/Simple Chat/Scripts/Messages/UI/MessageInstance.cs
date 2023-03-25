@@ -59,8 +59,6 @@ namespace ChatLogic.Messages
 
         public void Setup(Message msg)
         {
-            if (msg == null) return;
-
             Message = msg;
 
             if (_nameInstance)
@@ -92,7 +90,7 @@ namespace ChatLogic.Messages
             if (_timeText && _settingsAsset)
             {
                 _timeText.gameObject.SetActive(_settingsAsset.ShowTimeStamp);
-                _timeText.text = $"[{msg.Time.ToHHmmString()}]";
+                _timeText.text = $"[{msg.Time}]";
             }
             else
             {
